@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Assignment</title>
-    <link rel="stylesheet" href="./Styles/app.css">
-</head>
-<body>
-    <h1>hello</h1>
-    <canvas id="canvas" width="400" height="400"></canvas>
-    <p>This is a paragraph describing something.</p>
-    <script src="./JS/app.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Canvas Assignment</title>
+		<link rel="stylesheet" href="./Styles/app.css" />
+	</head>
+	<body>
+		<main>
+			<h1>DRAWING BOARD</h1>
+			<canvas id="canvas"></canvas>
+			<form id="form">
+				<div class="input-container">
+					<label for="shape"> Choose a shape:</label>
+					<input type="text" name="shape" id="shape" required />
+				</div>
+
+				<div class="input-container">
+					<label for="length"> Enter length:</label>
+					<input type="text" name="length" id="length" required />
+				</div>
+
+				<div class="input-container">
+					<label for="width"> Enter width: </label>
+					<input type="text" name="width" id="width" required />
+				</div>
+
+				<div class="input-container">
+					<label for="color">Choose Color:</label>
+					<input type="color" name="color" id="color" />
+				</div>
+
+				<button type="submit">Send</button>
+			</form>
+		</main>
+		<script src="./JS/app.js"></script>
+	</body>
 </html>
