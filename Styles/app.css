@@ -4,8 +4,12 @@
     box-sizing: border-box;
 }
 
-body{
-    color:white;
-    background-color: black;
+body {
+    color: black;
+    background-color: white;
     font-family: 'Times New Roman', Times, serif;
+}
+
+canvas {
+    background-color: blueviolet;
 }
