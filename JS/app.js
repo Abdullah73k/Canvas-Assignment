@@ -30,4 +30,22 @@ class Rectangle {
 		this.width = width;
 		this.color = color;
 	}
+
+	draw(ctx) {
+		ctx.fillStyle = this.color;
+        ctx.fillRect(this.positionX, this.positionX, this.width, this.height);
+	}
+}
+
+class Circle {
+	constructor(positionX, positionY, radius, color) {
+		this.positionX = positionX;
+		this.positionY = positionY;
+		this.radius = radius;
+		this.color = color;
+	}
+
+	draw(ctx) {
+		
+	}
 }
