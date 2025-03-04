@@ -1,54 +1,64 @@
-form.addEventListener("submit", (event) => {
-	event.preventDefault();
-	const length1 = length.value;
-	const width1 = width.value;
-    const color1 = color.value;
-	console.log(shape1, length1, width1);
-
-	localStorage.setItem("shape", shape1);
-	localStorage.setItem("length", length1);
-	localStorage.setItem("width", width1);
-    localStorage.setItem("color", color1);
-});
-
-const savedShape = localStorage.getItem("shape");
-const savedLength = localStorage.getItem("length");
-const savedWidth = localStorage.getItem("width");
-const savedColor = localStorage.getItem("color");
-
+let rectangleForm = document.getElementById("rectangle");
 
 /** @type {HTMLCanvasElement} */
 let c = document.getElementById("canvas");
 let ctx = c.getContext("2d");
 
 class Rectangle {
-	constructor(positionX, positionY, length, width, color) {
-		this.positionX = positionX;
-		this.positionY = positionY;
-		this.length = length;
-		this.width = width;
+	constructor(positionX, positionY, width, height, color) {
+		this.positionX = parseInt(positionX);
+		this.positionY = parseInt(positionY);
+		this.width = parseInt(width);
+		this.height = parseInt(height);
 		this.color = color;
 	}
 
 	draw(ctx) {
 		ctx.fillStyle = this.color;
-        ctx.fillRect(this.positionX, this.positionX, this.width, this.height);
+		ctx.fillRect(this.positionX, this.positionY, this.width, this.height);
 	}
 }
 
-class Circle {
-	constructor(positionX, positionY, radius, color) {
-		this.positionX = positionX;
-		this.positionY = positionY;
-		this.radius = radius;
-		this.color = color;
-	}
+rectangleForm.addEventListener("submit", (event) => {
+	event.preventDefault();
 
-	draw(ctx) {
-		ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        ctx.closePath();
-	}
-}
+	const lengthRec = document.getElementById("length").value;
+	const widthRec = document.getElementById("width").value;
+	const colorRec = document.getElementById("color").value;
+	const positionXRec = document.getElementById("positionX").value;
+	const positionYRec = document.getElementById("positionY").value;
+
+	console.log(
+		"Rectangle:",
+		lengthRec,
+		widthRec,
+		positionXRec,
+		positionYRec,
+		colorRec
+	);
+
+	let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
+
+	const newRectangle = {
+		type: "rectangle",
+		width: widthRec,
+		height: lengthRec,
+		color: colorRec,
+		x: positionXRec,
+		y: positionYRec,
+	};
+
+	shapes.push(newRectangle);
+	localStorage.setItem("shapes", JSON.stringify(shapes));
+
+	let lastShape = shapes[shapes.length - 1];
+	let rectangle1 = new Rectangle(
+		lastShape.x,
+		lastShape.y,
+		lastShape.width,
+		lastShape.height,
+		lastShape.color
+	);
+
+	rectangle1.draw(ctx);
+});
