@@ -28,3 +28,7 @@ canvas {
     height: 25rem;
 }
 
+.form-container {
+    display: flex;
+    gap: 1em;
+}

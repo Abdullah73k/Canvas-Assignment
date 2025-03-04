@@ -1,6 +1,5 @@
 form.addEventListener("submit", (event) => {
 	event.preventDefault();
-	const shape1 = shape.value;
 	const length1 = length.value;
 	const width1 = width.value;
     const color1 = color.value;
@@ -46,6 +45,10 @@ class Circle {
 	}
 
 	draw(ctx) {
-		
+		ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
 	}
 }
