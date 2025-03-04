@@ -1,4 +1,5 @@
 let rectangleForm = document.getElementById("rectangle");
+let circleForm = document.getElementById("circle");
 
 /** @type {HTMLCanvasElement} */
 let c = document.getElementById("canvas");
@@ -61,4 +62,55 @@ rectangleForm.addEventListener("submit", (event) => {
 	);
 
 	rectangle1.draw(ctx);
+});
+
+class Circle {
+	constructor(positionX, positionY, radius, color) {
+		this.positionX = parseInt(positionX);
+		this.positionY = parseInt(positionY);
+		this.radius = parseInt(radius);
+		this.color = color;
+	}
+
+	draw(ctx) {
+		ctx.beginPath();
+		ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
+		ctx.fillStyle = this.color;
+		ctx.fill();
+		ctx.closePath();
+	}
+}
+
+circleForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+
+	const radiusC = document.getElementById("shapeC").value;
+	const positionXC = document.getElementById("positionXC").value;
+	const positionYC = document.getElementById("positionYC").value;
+	const colorC = document.getElementById("colorC").value;
+
+	console.log("Circle:", radiusC, positionXC, positionYC, colorC);
+
+	let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
+
+	const newCircle = {
+		type: "circle",
+		radius: parseInt(radiusC),
+		color: colorC,
+		x: parseInt(positionXC), 
+		y: parseInt(positionYC),
+	};
+
+	shapes.push(newCircle);
+	localStorage.setItem("shapes", JSON.stringify(shapes));
+
+	let lastShape = shapes[shapes.length - 1];
+	let circle1 = new Circle(
+		lastShape.x,
+		lastShape.y,
+		lastShape.radius,
+		lastShape.color
+	);
+
+	circle1.draw(ctx);
 });
