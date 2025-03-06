@@ -1,6 +1,32 @@
+let shapeSelector = document.getElementById("selector");
 let rectangleForm = document.getElementById("rectangle");
 let circleForm = document.getElementById("circle");
 let triangleForm = document.getElementById("triangle");
+
+circleForm.style.display = "none";
+triangleForm.style.display = "none";
+
+shapeSelector.addEventListener("change", function () {
+	let shape = shapeSelector.value;
+
+	switch (shape) {
+		case "rectangle":
+			rectangleForm.style.display = "inherit";
+			circleForm.style.display = "none";
+			triangleForm.style.display = "none";
+			break;
+		case "circle":
+			rectangleForm.style.display = "none";
+			circleForm.style.display = "inherit";
+			triangleForm.style.display = "none";
+			break;
+		case "triangle":
+			rectangleForm.style.display = "none";
+			circleForm.style.display = "none";
+			triangleForm.style.display = "inherit";
+			break;
+	}
+});
 
 /** @type {HTMLCanvasElement} */
 let c = document.getElementById("canvas");
@@ -83,7 +109,7 @@ circleForm.addEventListener("submit", (event) => {
 		type: "circle",
 		radius: parseInt(radiusC),
 		color: colorC,
-		x: parseInt(positionXC), 
+		x: parseInt(positionXC),
 		y: parseInt(positionYC),
 	};
 

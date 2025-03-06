@@ -1,101 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Canvas Assignment</title>
-		<link rel="stylesheet" href="./Styles/app.css" />
-	</head>
-	<body>
-		<main>
-			<h1>DRAWING BOARD</h1>
-			<canvas id="canvas" width="600" height="400"></canvas>
-			<div class="form-container">
-				<form id="rectangle" class="rectangle">
-					<div class="input-container">
-						<label for="length"> Enter length:</label>
-						<input type="text" name="lengthR" id="length" required />
-					</div>
 
-					<div class="input-container">
-						<label for="width"> Enter width: </label>
-						<input type="text" name="widthR" id="width" required />
-					</div>
-					<div class="input-container">
-						<label for="positionY"> Enter position Y: </label>
-						<input type="text" name="positionYR" id="positionY" required />
-					</div>
-					<div class="input-container">
-						<label for="positionX"> Enter position X: </label>
-						<input type="text" name="positionXR" id="positionX" required />
-					</div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Canvas Assignment</title>
+	<link rel="stylesheet" href="./Styles/app.css" />
+</head>
 
-					<div class="input-container">
-						<label for="color">Choose Color:</label>
-						<input type="color" name="colorR" id="color" />
-					</div>
-
-					<button type="submit" id="rectangle-button">DRAW</button>
-				</form>
-
-				<form id="circle" class="circle">
-					<div class="input-container">
-						<label for="shapeC"> Enter the radius:</label>
-						<input type="text" name="shapeC" id="shapeC" required />
-					</div>
-
-					<div class="input-container">
-						<label for="positionYC"> Enter position Y: </label>
-						<input type="text" name="positionYC" id="positionYC" required />
-					</div>
-
-					<div class="input-container">
-						<label for="positionXC"> Enter position X: </label>
-						<input type="text" name="positionXC" id="positionXC" required />
-					</div>
-
-					<div class="input-container">
-						<label for="colorC">Choose Color:</label>
-						<input type="color" name="colorC" id="colorC" />
-					</div>
-
-					<button type="submit" id="circle-button">DRAW</button>
-				</form>
-
-				<form id="triangle" class="triangle">
-					<div class="input-container">
-						<label for="x1"> Enter X1: </label>
-						<input type="text" name="x1" id="x1" required />
-					</div>
-					<div class="input-container">
-						<label for="y1"> Enter Y1: </label>
-						<input type="text" name="y1" id="y1" required />
-					</div>
-					<div class="input-container">
-						<label for="x2"> Enter X2: </label>
-						<input type="text" name="x2" id="x2" required />
-					</div>
-					<div class="input-container">
-						<label for="y2"> Enter Y2: </label>
-						<input type="text" name="y2" id="y2" required />
-					</div>
-					<div class="input-container">
-						<label for="x3"> Enter X3: </label>
-						<input type="text" name="x3" id="x3" required />
-					</div>
-					<div class="input-container">
-						<label for="y3"> Enter Y3: </label>
-						<input type="text" name="y3" id="y3" required />
-					</div>
-					<div class="input-container">
-						<label for="colorT">Choose Color:</label>
-						<input type="color" name="colorT" id="colorT" />
-					</div>
-
-					<button type="submit" id="triangle-button">DRAW</button>
-				</form>
+<body>
+	<main>
+		<h1>DRAWING BOARD</h1>
+		<canvas id="canvas" width="600" height="400"></canvas>
+		<div class="form-container">
+			<div class="input-container">
+				<label for="selector">Choose a Shape:</label>
+				<select id="selector" name="cars">
+					<option value="rectangle">Rectangle</option>
+					<option value="circle">Circle</option>
+					<option value="triangle">Triangle</option>
+				</select>
 			</div>
-		</main>
-		<script src="./JS/app.js"></script>
-	</body>
+
+
+			<form id="rectangle" class="rectangle">
+				<div class="input-container">
+					<label for="length"> Enter length:</label>
+					<input type="number" name="lengthR" id="length" required />
+				</div>
+
+				<div class="input-container">
+					<label for="width"> Enter width: </label>
+					<input type="number" name="widthR" id="width" required />
+				</div>
+				<div class="input-container">
+					<label for="positionY"> Enter position Y: </label>
+					<input type="number" name="positionYR" id="positionY" min="0" max="399" required />
+				</div>
+				<div class="input-container">
+					<label for="positionX"> Enter position X: </label>
+					<input type="number" name="positionXR" id="positionX" min="0" max="599" required />
+				</div>
+
+				<div class="input-container">
+					<label for="color">Choose Color:</label>
+					<input type="color" name="colorR" id="color" />
+				</div>
+
+				<button type="submit" id="rectangle-button">Draw</button>
+			</form>
+
+			<form id="circle" class="circle">
+				<div class="input-container">
+					<label for="shapeC"> Enter the radius:</label>
+					<input type="number" name="shapeC" id="shapeC" min="0" required />
+				</div>
+
+				<div class="input-container">
+					<label for="positionYC"> Enter position Y: </label>
+					<input type="number" name="positionYC" id="positionYC" min="0" max="399" required />
+				</div>
+
+				<div class="input-container">
+					<label for="positionXC"> Enter position X: </label>
+					<input type="number" name="positionXC" id="positionXC" min="0" max="599" required />
+				</div>
+
+				<div class="input-container">
+					<label for="colorC">Choose Color:</label>
+					<input type="color" name="colorC" id="colorC" />
+				</div>
+
+				<button type="submit" id="circle-button">Draw</button>
+			</form>
+
+			<form id="triangle" class="triangle">
+				<div class="input-container">
+					<label for="x1"> Enter X1: </label>
+					<input type="number" name="x1" id="x1" min="0" max="599" required />
+				</div>
+				<div class="input-container">
+					<label for="y1"> Enter Y1: </label>
+					<input type="number" name="y1" id="y1" min="0" max="399" required />
+				</div>
+				<div class="input-container">
+					<label for="x2"> Enter X2: </label>
+					<input type="number" name="x2" id="x2" min="0" max="599" required />
+				</div>
+				<div class="input-container">
+					<label for="y2"> Enter Y2: </label>
+					<input type="number" name="y2" id="y2" min="0" max="399" required />
+				</div>
+				<div class="input-container">
+					<label for="x3"> Enter X3: </label>
+					<input type="number" name="x3" id="x3" min="0" max="599" required />
+				</div>
+				<div class="input-container">
+					<label for="y3"> Enter Y3: </label>
+					<input type="number" name="y3" id="y3" min="0" max="399" required />
+				</div>
+				<div class="input-container">
+					<label for="colorT">Choose Color:</label>
+					<input type="color" name="colorT" id="colorT" />
+				</div>
+
+				<button type="submit" id="triangle-button">Draw</button>
+			</form>
+		</div>
+	</main>
+	<script src="./JS/app.js"></script>
+</body>
+
 </html>

@@ -5,12 +5,13 @@
 }
 
 body {
-    color: black;
-    background-color: white;
-    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 main {
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,17 +19,29 @@ main {
 }
 
 h1 {
+    font-family:Courier, monospace;
     margin-top: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: blueviolet;
     font-weight: 400;
 }
 
 canvas {
-    background-color: blueviolet;
+    background-color: rgb(255, 255, 255);
     width: 37.5rem;
     height: 25rem;
+    border-style: solid;
+    border-width: 0.5rem; 
+    border-color: blueviolet;
+    border-radius: 1rem;
 }
 
 .form-container {
-    display: flex;
+    display: block;
+    background-color: rgba(100, 32, 170, 0.5);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
     gap: 1em;
 }
