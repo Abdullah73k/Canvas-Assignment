@@ -25,25 +25,24 @@
 
 			<form id="rectangle" class="rectangle">
 				<div class="input-container">
-					<label for="length"> Enter length:</label>
+					<label for="length">Length:</label>
 					<input type="number" name="lengthR" id="length" required />
 				</div>
 
 				<div class="input-container">
-					<label for="width"> Enter width: </label>
+					<label for="width">Width:</label>
 					<input type="number" name="widthR" id="width" required />
 				</div>
 				<div class="input-container">
-					<label for="positionY"> Enter position Y: </label>
+					<label for="positionX">X-Position:</label>
+					<input type="number" name="positionXR" id="positionX" min="0" max="599" required />
+				</div>
+				<div class="input-container">
+					<label for="positionY">Y-Position:</label>
 					<input type="number" name="positionYR" id="positionY" min="0" max="399" required />
 				</div>
 				<div class="input-container">
-					<label for="positionX"> Enter position X: </label>
-					<input type="number" name="positionXR" id="positionX" min="0" max="599" required />
-				</div>
-
-				<div class="input-container">
-					<label for="color">Choose Color:</label>
+					<label for="color">Color:</label>
 					<input type="color" name="colorR" id="color" />
 				</div>
 
@@ -52,20 +51,17 @@
 
 			<form id="circle" class="circle">
 				<div class="input-container">
-					<label for="shapeC"> Enter the radius:</label>
+					<label for="shapeC">Radius:</label>
 					<input type="number" name="shapeC" id="shapeC" min="0" required />
 				</div>
-
 				<div class="input-container">
-					<label for="positionYC"> Enter position Y: </label>
-					<input type="number" name="positionYC" id="positionYC" min="0" max="399" required />
-				</div>
-
-				<div class="input-container">
-					<label for="positionXC"> Enter position X: </label>
+					<label for="positionXC">X-Position:</label>
 					<input type="number" name="positionXC" id="positionXC" min="0" max="599" required />
 				</div>
-
+				<div class="input-container">
+					<label for="positionYC">Y-Position:</label>
+					<input type="number" name="positionYC" id="positionYC" min="0" max="399" required />
+				</div>
 				<div class="input-container">
 					<label for="colorC">Choose Color:</label>
 					<input type="color" name="colorC" id="colorC" />
@@ -76,27 +72,27 @@
 
 			<form id="triangle" class="triangle">
 				<div class="input-container">
-					<label for="x1"> Enter X1: </label>
+					<label for="x1">X1:</label>
 					<input type="number" name="x1" id="x1" min="0" max="599" required />
 				</div>
 				<div class="input-container">
-					<label for="y1"> Enter Y1: </label>
+					<label for="y1">Y1:</label>
 					<input type="number" name="y1" id="y1" min="0" max="399" required />
 				</div>
 				<div class="input-container">
-					<label for="x2"> Enter X2: </label>
+					<label for="x2">X2:</label>
 					<input type="number" name="x2" id="x2" min="0" max="599" required />
 				</div>
 				<div class="input-container">
-					<label for="y2"> Enter Y2: </label>
+					<label for="y2">Y2:</label>
 					<input type="number" name="y2" id="y2" min="0" max="399" required />
 				</div>
 				<div class="input-container">
-					<label for="x3"> Enter X3: </label>
+					<label for="x3">X3:</label>
 					<input type="number" name="x3" id="x3" min="0" max="599" required />
 				</div>
 				<div class="input-container">
-					<label for="y3"> Enter Y3: </label>
+					<label for="y3">Y3:</label>
 					<input type="number" name="y3" id="y3" min="0" max="399" required />
 				</div>
 				<div class="input-container">
@@ -106,6 +102,10 @@
 
 				<button type="submit" id="triangle-button">Draw</button>
 			</form>
+		</div>
+		<div class="buttons">
+			<input type="button" id="clear" value="Clear">
+			<input type="button" id="undo"	value="Undo">
 		</div>
 	</main>
 	<script src="./JS/app.js"></script>
