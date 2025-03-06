@@ -9,7 +9,7 @@
 	<body>
 		<main>
 			<h1>DRAWING BOARD</h1>
-			<canvas id="canvas"></canvas>
+			<canvas id="canvas" width="600" height="400"></canvas>
 			<div class="form-container">
 				<form id="rectangle" class="rectangle">
 					<div class="input-container">
@@ -48,11 +48,11 @@
 						<label for="positionYC"> Enter position Y: </label>
 						<input type="text" name="positionYC" id="positionYC" required />
 					</div>
-					
+
 					<div class="input-container">
 						<label for="positionXC"> Enter position X: </label>
 						<input type="text" name="positionXC" id="positionXC" required />
-					</div>					
+					</div>
 
 					<div class="input-container">
 						<label for="colorC">Choose Color:</label>
@@ -60,6 +60,39 @@
 					</div>
 
 					<button type="submit" id="circle-button">DRAW</button>
+				</form>
+
+				<form id="triangle" class="triangle">
+					<div class="input-container">
+						<label for="x1"> Enter X1: </label>
+						<input type="text" name="x1" id="x1" required />
+					</div>
+					<div class="input-container">
+						<label for="y1"> Enter Y1: </label>
+						<input type="text" name="y1" id="y1" required />
+					</div>
+					<div class="input-container">
+						<label for="x2"> Enter X2: </label>
+						<input type="text" name="x2" id="x2" required />
+					</div>
+					<div class="input-container">
+						<label for="y2"> Enter Y2: </label>
+						<input type="text" name="y2" id="y2" required />
+					</div>
+					<div class="input-container">
+						<label for="x3"> Enter X3: </label>
+						<input type="text" name="x3" id="x3" required />
+					</div>
+					<div class="input-container">
+						<label for="y3"> Enter Y3: </label>
+						<input type="text" name="y3" id="y3" required />
+					</div>
+					<div class="input-container">
+						<label for="colorT">Choose Color:</label>
+						<input type="color" name="colorT" id="colorT" />
+					</div>
+
+					<button type="submit" id="triangle-button">DRAW</button>
 				</form>
 			</div>
 		</main>
