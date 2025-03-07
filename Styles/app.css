@@ -1,4 +1,11 @@
-* {
+/*
+ * Abdullah Khamis - 400558799
+ * Date Created: 2025, 02, 25
+ * Description: This file contains the styling for the webpage, defining layout,
+ *              color scheme, and basic visual components.
+ */
+
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +26,7 @@ main {
 }
 
 h1 {
-    font-family:Courier, monospace;
+    font-family: Courier, monospace;
     margin-top: 1rem;
     padding: 10px;
     border-radius: 5px;
@@ -32,7 +39,7 @@ canvas {
     width: 37.5rem;
     height: 25rem;
     border-style: solid;
-    border-width: 0.5rem; 
+    border-width: 0.5rem;
     border-color: blueviolet;
     border-radius: 1rem;
 }

@@ -1,3 +1,9 @@
+/**
+ * Abdullah Khamis - 400558799
+ * Date Created: 2025, 02, 25
+ * Description: This file handles shape selection, drawing, clearing and undoing of shapes on the canvas.
+ */
+
 window.addEventListener("load", function () {
 	let shapeSelector = document.getElementById("selector");
 	let rectangleForm = document.getElementById("rectangle");
@@ -48,6 +54,12 @@ window.addEventListener("load", function () {
 		}
 	});
 
+	/**
+	 * Redraws all shapes from local storage onto the canvas.
+	 * - Retrieves shapes array from localStorage.
+	 * - Clears the canvas.
+	 * - Iterates through each shape object and draws accordingly.
+	 */
 	function redraw() {
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -73,6 +85,15 @@ window.addEventListener("load", function () {
 	let c = document.getElementById("canvas");
 	let ctx = c.getContext("2d");
 
+	/**
+	 * Represents a rectangle shape.
+	 * @constructor
+	 * @param {number} positionX - The x-coordinate position of the rectangle.
+	 * @param {number} positionY - The y-coordinate position of the rectangle.
+	 * @param {number} width - The width of the rectangle.
+	 * @param {number} height - The height of the rectangle.
+	 * @param {string} color - The color used to fill the rectangle.
+	 */
 	class Rectangle {
 		constructor(positionX, positionY, width, height, color) {
 			this.positionX = parseInt(positionX);
@@ -81,6 +102,10 @@ window.addEventListener("load", function () {
 			this.height = parseInt(height);
 			this.color = color;
 		}
+		/**
+		 * Draws the rectangle on the given canvas context.
+		 * @param {CanvasRenderingContext2D} ctx - The context of the canvas.
+		 */
 		draw(ctx) {
 			ctx.fillStyle = this.color;
 			ctx.fillRect(this.positionX, this.positionY, this.width, this.height);
@@ -118,6 +143,14 @@ window.addEventListener("load", function () {
 		rectangle1.draw(ctx);
 	});
 
+	/**
+	 * Represents a circle shape.
+	 * @constructor
+	 * @param {number} positionX - The x-coordinate position of the circle center.
+	 * @param {number} positionY - The y-coordinate position of the circle center.
+	 * @param {number} radius - The radius of the circle.
+	 * @param {string} color - The color used to fill the circle.
+	 */
 	class Circle {
 		constructor(positionX, positionY, radius, color) {
 			this.positionX = parseInt(positionX);
@@ -125,6 +158,10 @@ window.addEventListener("load", function () {
 			this.radius = parseInt(radius);
 			this.color = color;
 		}
+		/**
+		 * Draws the circle on the given canvas context.
+		 * @param {CanvasRenderingContext2D} ctx - The context of the canvas.
+		 */
 		draw(ctx) {
 			ctx.beginPath();
 			ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
@@ -163,6 +200,17 @@ window.addEventListener("load", function () {
 		circle1.draw(ctx);
 	});
 
+	/**
+	 * Represents a triangle shape.
+	 * @constructor
+	 * @param {number} x1 - The x-coordinate of the first vertex.
+	 * @param {number} y1 - The y-coordinate of the first vertex.
+	 * @param {number} x2 - The x-coordinate of the second vertex.
+	 * @param {number} y2 - The y-coordinate of the second vertex.
+	 * @param {number} x3 - The x-coordinate of the third vertex.
+	 * @param {number} y3 - The y-coordinate of the third vertex.
+	 * @param {string} color - The color used to fill the triangle.
+	 */
 	class Triangle {
 		constructor(x1, y1, x2, y2, x3, y3, color) {
 			this.x1 = parseInt(x1);
@@ -173,6 +221,10 @@ window.addEventListener("load", function () {
 			this.y3 = parseInt(y3);
 			this.color = color;
 		}
+		/**
+		 * Draws the triangle on the given canvas context.
+		 * @param {CanvasRenderingContext2D} ctx - The context of the canvas.
+		 */
 		draw(ctx) {
 			ctx.beginPath();
 			ctx.moveTo(this.x1, this.y1);
