@@ -42,7 +42,6 @@ window.addEventListener("load", function () {
 			localStorage.setItem("shapes", JSON.stringify(shapes));
 			redraw();
 		}
-
 	});
 	undoButton.addEventListener("click", function () {
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
@@ -66,7 +65,13 @@ window.addEventListener("load", function () {
 		for (let shape of shapes) {
 			switch (shape.type) {
 				case "rectangle":
-					let rectangle = new Rectangle(shape.x, shape.y, shape.width, shape.height, shape.color);
+					let rectangle = new Rectangle(
+						shape.x,
+						shape.y,
+						shape.width,
+						shape.height,
+						shape.color
+					);
 					rectangle.draw(ctx);
 					break;
 				case "circle":
@@ -74,7 +79,15 @@ window.addEventListener("load", function () {
 					circle.draw(ctx);
 					break;
 				case "triangle":
-					let triangle = new Circle(shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3, shape.color);
+					let triangle = new Circle(
+						shape.x1,
+						shape.y1,
+						shape.x2,
+						shape.y2,
+						shape.x3,
+						shape.y3,
+						shape.color
+					);
 					triangle.draw(ctx);
 					break;
 			}
@@ -121,7 +134,14 @@ window.addEventListener("load", function () {
 		const positionXRec = document.getElementById("positionX").value;
 		const positionYRec = document.getElementById("positionY").value;
 
-		console.log("Rectangle:", lengthRec, widthRec, positionXRec, positionYRec, colorRec);
+		console.log(
+			"Rectangle:",
+			lengthRec,
+			widthRec,
+			positionXRec,
+			positionYRec,
+			colorRec
+		);
 
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
 
@@ -138,7 +158,13 @@ window.addEventListener("load", function () {
 		localStorage.setItem("shapes", JSON.stringify(shapes));
 
 		let lastShape = shapes[shapes.length - 1];
-		let rectangle1 = new Rectangle(lastShape.x, lastShape.y, lastShape.width, lastShape.height, lastShape.color);
+		let rectangle1 = new Rectangle(
+			lastShape.x,
+			lastShape.y,
+			lastShape.width,
+			lastShape.height,
+			lastShape.color
+		);
 
 		rectangle1.draw(ctx);
 	});
@@ -195,7 +221,12 @@ window.addEventListener("load", function () {
 		localStorage.setItem("shapes", JSON.stringify(shapes));
 
 		let lastShape = shapes[shapes.length - 1];
-		let circle1 = new Circle(lastShape.x, lastShape.y, lastShape.radius, lastShape.color);
+		let circle1 = new Circle(
+			lastShape.x,
+			lastShape.y,
+			lastShape.radius,
+			lastShape.color
+		);
 
 		circle1.draw(ctx);
 	});
@@ -266,7 +297,15 @@ window.addEventListener("load", function () {
 		localStorage.setItem("shapes", JSON.stringify(shapes));
 
 		let lastShape = shapes[shapes.length - 1];
-		let triangle1 = new Triangle(lastShape.x1, lastShape.y1, lastShape.x2, lastShape.y2, lastShape.x3, lastShape.y3, lastShape.color);
+		let triangle1 = new Triangle(
+			lastShape.x1,
+			lastShape.y1,
+			lastShape.x2,
+			lastShape.y2,
+			lastShape.x3,
+			lastShape.y3,
+			lastShape.color
+		);
 
 		triangle1.draw(ctx);
 	});
@@ -275,5 +314,4 @@ window.addEventListener("load", function () {
 	redraw();
 	circleForm.style.display = "none";
 	triangleForm.style.display = "none";
-
 });
