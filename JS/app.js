@@ -1,5 +1,6 @@
 /**
  * Abdullah Khamis - 400558799
+ * Jackson Bundy - 400600433
  * Date Created: 2025, 02, 25
  * Description: This file handles shape selection, drawing, clearing and undoing of shapes on the canvas.
  */
@@ -12,6 +13,9 @@ window.addEventListener("load", function () {
 	let clearButton = document.getElementById("clear");
 	let undoButton = document.getElementById("undo");
 
+	/**
+	 * Displays only one form at a time based on the value of shapeSelector
+	 */
 	shapeSelector.addEventListener("change", function () {
 		let shape = shapeSelector.value;
 
@@ -34,15 +38,17 @@ window.addEventListener("load", function () {
 		}
 	});
 
+	/**
+	 * Clears shapes from local storage and then redraws the canvas.
+	 */
 	clearButton.addEventListener("click", function () {
-		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
-
-		if (shapes.length >= 1) {
-			shapes = [];
-			localStorage.setItem("shapes", JSON.stringify(shapes));
+			localStorage.setItem("shapes", JSON.stringify([]));
 			redraw();
-		}
 	});
+	
+	/**
+	 * Clears most recent shape from local storage and then redraws the canvas.
+	 */
 	undoButton.addEventListener("click", function () {
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
 
@@ -125,6 +131,11 @@ window.addEventListener("load", function () {
 		}
 	}
 
+	/**
+	 * When the rectangle form is submitted, get the values from it.
+	 * Use them to create a new rectangle, place it in local storage, 
+	 * then draw it.
+	 */
 	rectangleForm.addEventListener("submit", (event) => {
 		event.preventDefault();
 
@@ -134,14 +145,15 @@ window.addEventListener("load", function () {
 		const positionXRec = document.getElementById("positionX").value;
 		const positionYRec = document.getElementById("positionY").value;
 
-		console.log(
-			"Rectangle:",
-			lengthRec,
-			widthRec,
-			positionXRec,
-			positionYRec,
-			colorRec
-		);
+		//Print Rectangle (Debug Only)
+		// console.log(
+		// 	"Rectangle:",
+		// 	lengthRec,
+		// 	widthRec,
+		// 	positionXRec,
+		// 	positionYRec,
+		// 	colorRec
+		// );
 
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
 
@@ -197,6 +209,11 @@ window.addEventListener("load", function () {
 		}
 	}
 
+	/**
+	 * When the cirle form is submitted, get the values from it.
+	 * Use them to create a new circle, place it in local storage, 
+	 * then draw it.
+	 */
 	circleForm.addEventListener("submit", (event) => {
 		event.preventDefault();
 
@@ -205,7 +222,8 @@ window.addEventListener("load", function () {
 		const positionYC = document.getElementById("positionYC").value;
 		const colorC = document.getElementById("colorC").value;
 
-		console.log("Circle:", radiusC, positionXC, positionYC, colorC);
+		//Print Circle (Debug Only)	
+		//console.log("Circle:", radiusC, positionXC, positionYC, colorC);
 
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
 
@@ -267,6 +285,11 @@ window.addEventListener("load", function () {
 		}
 	}
 
+	/**
+	 * When the triangle form is submitted, get the values from it.
+	 * Use them to create a new triangle, place it in local storage, 
+	 * then draw it.
+	 */
 	triangleForm.addEventListener("submit", (event) => {
 		event.preventDefault();
 
@@ -278,7 +301,8 @@ window.addEventListener("load", function () {
 		const y3 = document.getElementById("y3").value;
 		const colorT = document.getElementById("colorT").value;
 
-		console.log("Triangle:", x1, y1, x2, y2, x3, y3, colorT);
+		//Print Triangle (Debug Only)
+		//console.log("Triangle:", x1, y1, x2, y2, x3, y3, colorT);
 
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
 
