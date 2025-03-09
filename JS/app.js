@@ -42,10 +42,10 @@ window.addEventListener("load", function () {
 	 * Clears shapes from local storage and then redraws the canvas.
 	 */
 	clearButton.addEventListener("click", function () {
-			localStorage.setItem("shapes", JSON.stringify([]));
-			redraw();
+		localStorage.setItem("shapes", JSON.stringify([]));
+		redraw();
 	});
-	
+
 	/**
 	 * Clears most recent shape from local storage and then redraws the canvas.
 	 */
@@ -133,7 +133,7 @@ window.addEventListener("load", function () {
 
 	/**
 	 * When the rectangle form is submitted, get the values from it.
-	 * Use them to create a new rectangle, place it in local storage, 
+	 * Use them to create a new rectangle, place it in local storage,
 	 * then draw it.
 	 */
 	rectangleForm.addEventListener("submit", (event) => {
@@ -210,8 +210,8 @@ window.addEventListener("load", function () {
 	}
 
 	/**
-	 * When the cirle form is submitted, get the values from it.
-	 * Use them to create a new circle, place it in local storage, 
+	 * When the circle form is submitted, get the values from it.
+	 * Use them to create a new circle, place it in local storage,
 	 * then draw it.
 	 */
 	circleForm.addEventListener("submit", (event) => {
@@ -222,7 +222,7 @@ window.addEventListener("load", function () {
 		const positionYC = document.getElementById("positionYC").value;
 		const colorC = document.getElementById("colorC").value;
 
-		//Print Circle (Debug Only)	
+		//Print Circle (Debug Only)
 		//console.log("Circle:", radiusC, positionXC, positionYC, colorC);
 
 		let shapes = JSON.parse(localStorage.getItem("shapes")) || [];
@@ -287,7 +287,7 @@ window.addEventListener("load", function () {
 
 	/**
 	 * When the triangle form is submitted, get the values from it.
-	 * Use them to create a new triangle, place it in local storage, 
+	 * Use them to create a new triangle, place it in local storage,
 	 * then draw it.
 	 */
 	triangleForm.addEventListener("submit", (event) => {
